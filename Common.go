@@ -63,7 +63,7 @@ func GetUnitName(unit string) string {
 	}
 }
 
-func GetIconEmoji(icon string) string {
+func GetIcon(icon string) string {
 	switch icon {
 	case "01d":
 		return "☀️" // clear-day
@@ -84,9 +84,32 @@ func GetIconEmoji(icon string) string {
 	case "11d", "11n":
 		return "⛈️" // thunderstorm
 	case "13d", "13n":
-		return "🌨☃️" // snow
+		return "🌨" // snow
 	case "50d", "50n":
 		return "🌫" // fog
+	default:
+		return ""
+	}
+}
+
+func GetMoonPhaseIcon(phase float64) string {
+	switch {
+	case phase == 0:
+		return "🌑" // New Moon
+	case phase > 0 && phase < 0.25:
+		return "🌒" // Waxing Crescent
+	case phase == 0.25:
+		return "🌓" // First Quarter
+	case phase > 0.25 && phase < 0.5:
+		return "🌔" // Waxing Gibbous
+	case phase == 0.5:
+		return "🌕" // Full Moon
+	case phase > 0.5 && phase < 0.75:
+		return "🌖" // Waning Gibbous
+	case phase == 0.75:
+		return "🌗" // Last Quarter
+	case phase > 0.75 && phase < 1:
+		return "🌘" // Waning Crescent
 	default:
 		return ""
 	}
