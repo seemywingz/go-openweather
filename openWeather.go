@@ -108,17 +108,6 @@ type OneCallResponse struct {
 	} `json:"alerts"`
 }
 
-func GetUnitSymbol(unit string) string {
-	switch unit {
-	case "standard":
-		return "K"
-	case "imperial":
-		return "°F"
-	default:
-		return "°C"
-	}
-}
-
 func Get(lat, long float64, unit string) (OneCallResponse, error) {
 	err := getAPIKey()
 	if err != nil {
