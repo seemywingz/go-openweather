@@ -174,7 +174,7 @@ func GetGeoData(location string) (GeoData, error) {
 	}
 
 	encLocation := url.QueryEscape(location)
-	url := "http://api.openweathermap.org/geo/1.0/direct?q=" + encLocation + "&limit=1&appid=" + OPEN_WEATHER_MAP_API_KEY
+	url := "http://api.openweathermap.org/geo/1.0/direct?q=" + encLocation + "&limit=1&appid=" + apiKey
 
 	resp, err := http.Get(url)
 	if err != nil {
