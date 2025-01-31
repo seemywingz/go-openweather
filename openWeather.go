@@ -121,11 +121,7 @@ type OneCallResponse struct {
 	} `json:"alerts"`
 }
 
-func Get(lat, long float64, unit string) (OneCallResponse, error) {
-	err := APIKey()
-	if err != nil {
-		return OneCallResponse{}, err
-	}
+func Get(lat, long float64, unit, apiKey string) (OneCallResponse, error) {
 
 	url := fmt.Sprintf("%s?lat=%f&lon=%f&exclude=minutely&units=%s&appid=%s", apiURL, lat, long, unit, apiKey)
 
