@@ -1,4 +1,4 @@
-package openWeather
+package openweather
 
 import (
 	"encoding/json"
@@ -168,7 +168,7 @@ type GeoData []struct {
 // GetGeoData: Get GeoData from OpenWeatherMap API
 func GetGeoData(location string) (GeoData, error) {
 
-	err := getAPIKey()
+	err := APIKey()
 	if err != nil {
 		return nil, err
 	}

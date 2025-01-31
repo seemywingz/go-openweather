@@ -1,4 +1,4 @@
-package openWeather
+package openweather
 
 import (
 	"fmt"
@@ -9,13 +9,13 @@ const apiURL = "https://api.openweathermap.org/data/3.0/onecall"
 
 var apiKey string
 
-var ValidUnits = map[string]bool{
-	"standard": true,
-	"metric":   true,
-	"imperial": true,
+var ValidUnits = []string{
+	"standard",
+	"metric",
+	"imperial",
 }
 
-func getAPIKey() error {
+func APIKey() error {
 	apiKey = os.Getenv("OPEN_WEATHER_MAP_API_KEY")
 	if apiKey == "" {
 		return fmt.Errorf("OPEN_WEATHER_MAP_API_KEY is not set")
@@ -23,7 +23,7 @@ func getAPIKey() error {
 	return nil
 }
 
-func GetUnitDistance(unit string) string {
+func UnitDistance(unit string) string {
 	switch unit {
 	case "imperial":
 		return "mi"
@@ -32,7 +32,7 @@ func GetUnitDistance(unit string) string {
 	}
 }
 
-func GetUnitSpeed(unit string) string {
+func UnitSpeed(unit string) string {
 	switch unit {
 	case "imperial":
 		return "mph"
@@ -41,7 +41,7 @@ func GetUnitSpeed(unit string) string {
 	}
 }
 
-func GetUnitSymbol(unit string) string {
+func UnitSymbol(unit string) string {
 	switch unit {
 	case "standard":
 		return "K"
@@ -52,7 +52,7 @@ func GetUnitSymbol(unit string) string {
 	}
 }
 
-func GetUnitName(unit string) string {
+func UnitName(unit string) string {
 	switch unit {
 	case "standard":
 		return "Kelvin"
@@ -63,7 +63,7 @@ func GetUnitName(unit string) string {
 	}
 }
 
-func GetIcon(icon string) string {
+func Icon(icon string) string {
 	switch icon {
 	case "01d":
 		return "☀️" // clear-day
@@ -92,7 +92,7 @@ func GetIcon(icon string) string {
 	}
 }
 
-func GetMoonPhaseIcon(phase float64) string {
+func MoonPhaseIcon(phase float64) string {
 	switch {
 	case phase == 0:
 		return "🌑" // New Moon
@@ -115,7 +115,7 @@ func GetMoonPhaseIcon(phase float64) string {
 	}
 }
 
-func GetTimeZoneTLA(timezone string) string {
+func TimeZoneTLA(timezone string) string {
 	switch timezone {
 	case "America/New_York":
 		return "EST"

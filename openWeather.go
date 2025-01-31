@@ -1,4 +1,4 @@
-package openWeather
+package openweather
 
 import (
 	"encoding/json"
@@ -122,7 +122,7 @@ type OneCallResponse struct {
 }
 
 func Get(lat, long float64, unit string) (OneCallResponse, error) {
-	err := getAPIKey()
+	err := APIKey()
 	if err != nil {
 		return OneCallResponse{}, err
 	}
