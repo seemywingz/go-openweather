@@ -167,6 +167,12 @@ type GeoData []struct {
 
 // GetGeoData: Get GeoData from OpenWeatherMap API
 func GetGeoData(location string) (GeoData, error) {
+
+	err := getAPIKey()
+	if err != nil {
+		return nil, err
+	}
+
 	encLocation := url.QueryEscape(location)
 	url := "http://api.openweathermap.org/geo/1.0/direct?q=" + encLocation + "&limit=1&appid=" + OPEN_WEATHER_MAP_API_KEY
 
