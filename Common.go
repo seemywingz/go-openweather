@@ -23,6 +23,24 @@ func getAPIKey() error {
 	return nil
 }
 
+func GetUnitDistance(unit string) string {
+	switch unit {
+	case "imperial":
+		return "mi"
+	default:
+		return "m"
+	}
+}
+
+func GetUnitSpeed(unit string) string {
+	switch unit {
+	case "imperial":
+		return "mph"
+	default:
+		return "m/s"
+	}
+}
+
 func GetUnitSymbol(unit string) string {
 	switch unit {
 	case "standard":
@@ -71,5 +89,44 @@ func GetIconEmoji(icon string) string {
 		return "🌫" // fog
 	default:
 		return ""
+	}
+}
+
+func GetTimeZoneTLA(timezone string) string {
+	switch timezone {
+	case "America/New_York":
+		return "EST"
+	case "America/Chicago":
+		return "CST"
+	case "America/Denver":
+		return "MST"
+	case "America/Los_Angeles":
+		return "PST"
+	case "America/Anchorage":
+		return "AKST"
+	case "Pacific/Honolulu":
+		return "HST"
+	case "America/Phoenix":
+		return "MST"
+	case "Europe/London":
+		return "GMT"
+	case "Europe/Berlin":
+		return "CET"
+	case "Asia/Tokyo":
+		return "JST"
+	case "Australia/Sydney":
+		return "AEST"
+	case "Asia/Kolkata":
+		return "IST"
+	case "Asia/Shanghai":
+		return "CST"
+	case "America/Sao_Paulo":
+		return "BRT"
+	case "Africa/Johannesburg":
+		return "SAST"
+	case "Pacific/Auckland":
+		return "NZST"
+	default:
+		return timezone
 	}
 }
